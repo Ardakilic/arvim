@@ -264,7 +264,7 @@ let mapleader=","
 """Paste Stuff
 " http://stackoverflow.com/questions/11489428/
 set clipboard+=unnamed  " use the clipboards of vim and win
-set paste               " Paste from a windows or from vim
+"set paste               " Paste from a windows or from vim -> breaks the neocomplcache, disabled!
 
 
 """""" 

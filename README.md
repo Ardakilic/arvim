@@ -154,12 +154,16 @@ Some Tricks
 * (default feature from plugins) <kbd>Ctrl+n</kbd> will select the next word, and there will be multiple cursors. After then you can multi edit/delete the matched words. More info: [here](https://github.com/terryma/vim-multiple-cursors#about).
 * <kbd>:T</kbd> will split the current buffer, and open a new bash there. <kbd>:Tn</kbd> will open a new shell in the current buffer. (Note: To use `powershell.exe` etc. in Windows, you have to switch these lines: `:cabbrev T ConqueTermSplit bash` and `:cabbrev Tn ConqueTerm bash`)
 * <kbd>F5</kbd> will toggle line numbers on active buffer. <kbd>F6</kbd> will enable, <kbd>F7</kbd> will disable it.
-* <kbd>F9</kbd> will toggle the Tagbar.
+* <kbd>F2</kbd> will toggle the paste mode.
+* You an use <kbd>Ctrl+X</kbd>, <kbd>Ctrl+C</kbd>, <kbd>Ctrl+V</kbd>, <kbd>Shift+Delete</kbd> and <kbd>Shift+Insert</kbd>, *which will work across Vim and the OS*, and it won't affect blockwise selection. While in insert mode, to paste, use <kbd>Ctrl + R + +</kbd> instead.
+* You can use <kbd>Shift + arrowkeys</kbd> to make selection.
+* Default <kbd>Ctrl+V</kbd> is remapped into <kbd>Ctrl+Q</kbd>.
+* <kbd>F8</kbd> will toggle the Tagbar.
 * <kbd>CTRL+n</kbd> will open a new tab, <kbd>CTRL+←</kbd> will switch to previous tab, <kbd>CTRL+→</kbd> will switch to next tab.
 * <kbd>CTRL+Shift+d</kbd> will duplicate the current line (just like Sublime Text).
 * (default feature) To open a file in a new tab from NERDTree, choose the file, and press <kbd>t</kbd>
 * If using mouse, <kbd>F12</kbd> will switch mouse focus from Vim to Terminal, pressing <kbd>F12</kbd> will switch again. (Using [this](https://github.com/nvie/vim-togglemouse/blob/master/plugin/toggle_mouse.vim) snippet)
-* <kbd>F2</kbd> and <kbd>F3</kbd> will switch on current frames. 
+* <kbd>F3</kbd> and <kbd>F4</kbd> will switch on current frames. 
 * (default feature) <kbd>CTRL+W+W</kbd> will change the focus.
 * (default feature) <kbd>CTRL+P</kbd> will open the ctrlp.vim menu, which you're already similar to if you've used Sublime Text.
 * The cursor auto-wraps. This means, if you are at a start of a line and press <kbd>←</kbd>, the cursor will go to the end of previous line, also the opposite is available. If you press <kbd>→</kbd> at the end of the line, it will go to the first character of next line.
@@ -176,6 +180,7 @@ TODO
 I'm open to suggestions, if you have a suggestion, please feel free to add them from [issues page](https://github.com/Ardakilic/arvim/issues).
 
 * Translation of `.vimrc` to English and tidying it up.
+* <kbd>Ctrl+Shift+Arrowkeys</kbd> feature.
 * On my Gnome Terminal, sometimes Airline + Solarized colors are messed even after I've set the colors (should be fixed).
 * Git Integration
 * Composer and Laravel support

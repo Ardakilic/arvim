@@ -261,14 +261,57 @@ let mapleader=","
 """"
 
 """"
+"""Paste Stuff
+" http://stackoverflow.com/questions/11489428/
+set clipboard+=unnamed  " use the clipboards of vim and win
+set paste               " Paste from a windows or from vim
+
+
+"""""" 
+" Ctrl+X, Shift+Del, Ctrl+V, Shift+Insert
+" http://raghavan.info/blog/2013/02/10/bind-ctrl-v-to-copy-paste-in-vim-without-affecting-blockwise-selection/
+" CTRL-X and SHIFT-Del are Cut
+vnoremap <C-X> "+x
+vnoremap <S-Del> "+x
+
+" CTRL-C and CTRL-Insert are Copy
+vnoremap <C-C> "+y
+vnoremap <C-Insert> "+y
+
+" CTRL-V and SHIFT-Insert are Paste
+map <C-V> "+gP
+map <S-Insert> "+gP
+
+cmap <C-V> <C-R>+
+cmap <S-Insert> <C-R>+
+
+" Pasting blockwise and linewise selections is not possible in Insert and
+" Visual mode without the +virtualedit feature.  They are pasted as if they
+" were characterwise instead.
+" Uses the paste.vim autoload script.
+
+exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
+exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
+
+imap <S-Insert> <C-V>
+vmap <S-Insert> <C-V>
+
+" Use CTRL-Q to do what CTRL-V used to do
+noremap <C-Q> <C-V>
+
+
+""Paste stuff
+""""
+
+""""
 " 3 left clickte fold toggle'ı
 :map <3-LeftMouse> za
 """"
 
 """"
 "açık bufferlar arasında switch
-map <F2> :bprevious<CR>
-map <F3> :bnext<CR>
+map <F3> :bprevious<CR>
+map <F4> :bnext<CR>
 """"
 
 """"
@@ -280,9 +323,24 @@ map <F7> :set nonu<CR>
 """"
 
 """"
-"Tagbar ı aç kapa (F9)
-nmap <F9> :TagbarToggle<CR>
+"Tagbar ı aç kapa (F8)
+nmap <F8> :TagbarToggle<CR>
 """""
+
+""""
+" Shift + Arrow keys for visual selection
+" http://stackoverflow.com/a/22463664/570763
+nmap <S-Up> v<Up>
+nmap <S-Down> v<Down>
+nmap <S-Left> v<Left>
+nmap <S-Right> v<Right>
+vmap <S-Up> <Up>
+vmap <S-Down> <Down>
+vmap <S-Left> <Left>
+vmap <S-Right> <Right>
+
+""""
+
 
 """""
 " CTRL+Shift+d ile satırı kopyalama (Sublime Text'teki gibi)

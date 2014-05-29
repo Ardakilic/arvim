@@ -52,5 +52,5 @@
 	ignore = dirty
 [submodule ".vim/bundle/vim-multiple-cursors"]
 	path = .vim/bundle/vim-multiple-cursors
-	url = https://github.com/terryma/vim-multiple-cursors
+	url = https://github.com/kris89/vim-multiple-cursors
 	ignore = dirty

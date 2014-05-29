@@ -39,12 +39,12 @@ This configuration includes some packages:
 Screenshots
 -------------
 
-####Very recent screenshot with full features
+**Very recent screenshot with full features**
 
 
-![Preview1](http://i.imgur.com/I15YfMX.png)
+![Preview1](http://i.imgur.com/lbzgnDp.png)
 
-####The rest is out of date, but you'll get the idea.
+**The rest is out of date, but you'll get the idea.**
 
 ![Preview2](http://i.imgur.com/eH4CdlW.png)
 
@@ -55,6 +55,7 @@ Screenshots
 Requirements
 -------------
 * Python 2.3+ or 3.0+ (for ConqueShell)
+* `ctags` (for tagbar)
 * Vim 7.0+ (for *nix), 7.3+ (for Windows, GVim)
 
 Installation
@@ -151,7 +152,7 @@ Some Tricks
 * This configuration supports mouse input :)
 * <kbd>CTRL+e</kbd> will toggle NERDTree.
 * (default feature) Pressing <kbd>r</kbd> will reload contents on focused folder in NERDTree (you'll see changes if done), <kbd>R</kbd> will reload all contents from root of NERDTree.
-* (default feature from plugins) <kbd>Ctrl+n</kbd> will select the next word, and there will be multiple cursors. After then you can multi edit/delete the matched words. More info: [here](https://github.com/terryma/vim-multiple-cursors#about).
+* (default feature from plugin, remapped) <kbd>Ctrl+d</kbd> will select the next word (as in Sublime Text), and there will be multiple cursors. After then you can multi edit/delete the matched words. More info: [here](https://github.com/terryma/vim-multiple-cursors#about).
 * <kbd>:T</kbd> will split the current buffer, and open a new bash there. <kbd>:Tn</kbd> will open a new shell in the current buffer. (Note: To use `powershell.exe` etc. in Windows, you have to switch these lines: `:cabbrev T ConqueTermSplit bash` and `:cabbrev Tn ConqueTerm bash`)
 * <kbd>F5</kbd> will toggle line numbers on active buffer. <kbd>F6</kbd> will enable, <kbd>F7</kbd> will disable it.
 * <kbd>F2</kbd> will toggle the paste mode.

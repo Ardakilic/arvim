@@ -453,6 +453,9 @@ let g:ctrlp_custom_ignore = {
 "open neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 
+""Remap vim-multiple-cursors to Ctrl+d
+let g:multi_cursor_next_key='<C-d>'
+
 "Neocomplcache should select / fill the nearest suggested method using <tab>
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"

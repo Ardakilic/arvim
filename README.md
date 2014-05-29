@@ -159,6 +159,8 @@ Some Tricks
 * You can use <kbd>Shift + arrowkeys</kbd> to make selection.
 * Default <kbd>Ctrl+V</kbd> is remapped into <kbd>Ctrl+Q</kbd>.
 * <kbd>F8</kbd> will toggle the Tagbar.
+* <kbd>j</kbd> and <kbd>k</kbd> will really go to bottom and top line in editor, not the real next / previous line (if long lines are wrapped, it'd go to next #linenumber ignoring the wrap between).
+* <kbd>jj</kbd> will do what <kbd>ESC</kbd> does.
 * <kbd>CTRL+n</kbd> will open a new tab, <kbd>CTRL+←</kbd> will switch to previous tab, <kbd>CTRL+→</kbd> will switch to next tab.
 * <kbd>CTRL+Shift+d</kbd> will duplicate the current line (just like Sublime Text).
 * (default feature) To open a file in a new tab from NERDTree, choose the file, and press <kbd>t</kbd>

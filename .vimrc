@@ -113,6 +113,17 @@ set ttymouse=xterm2
 """""""""""""""""""""""""""""""""""""
 ""Now key edits + tricks
 
+"""
+"Easy escaping to normal model
+imap jj <esc>
+""""
+
+""""
+" Down is really the next line
+nnoremap j gj
+nnoremap k gk
+""""
+
 """"
 ""NeoComplCache + vim-multiple-cursors conflicts, a fix for it
 " we've used a fork because of this: https://github.com/kris89/vim-multiple-cursors
@@ -272,6 +283,7 @@ endif
 """"
 "leader key is ","
 let mapleader=","
+let g:mapleader = ","
 """"
 
 """"
@@ -339,7 +351,6 @@ map <F4> :bnext<CR>
 map <F5> :set invnumber<CR>
 map <F6> :set nu<CR>
 map <F7> :set nonu<CR>
-"
 """"
 
 """"
@@ -436,7 +447,7 @@ let g:ctrlp_custom_ignore = {
         \ }
 """""
 
-"open neocomplcache aç
+"open neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 
 "Neocomplcache should select / fill the nearest suggested method using <tab>

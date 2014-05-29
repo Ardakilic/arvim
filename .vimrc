@@ -14,10 +14,10 @@
 
 set nocompatible              " be iMproved, required
 
-" terminal title'ı vim'den alsın. "vim - dosyaadi.php" gibi
+" Let terminal get title from vim. Like "vim - fileName.php"
 set title
 
-set ruler " sağ altta cursor position göster
+set ruler " show cursor position at right bottom
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -60,14 +60,12 @@ set ruler " sağ altta cursor position göster
 execute pathogen#infect()
 syntax on
 
-
-" nerdtree eklendi: https://github.com/scrooloose/nerdtree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vundle için
+" <vundle> bundle manager
 " https://github.com/gmarik/Vundle.vim
-filetype off                  " required
+filetype off                  " required (will be enabled after vundle is set)
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -78,30 +76,28 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 """"""""""
-""""pluginler buraya
-"kurunca vim +BundleInstall +qall çalıştırılacak
+""""Plugins here
+" this command has to be run after bundles 'vim +BundleInstall +qall' once
 
 
-"""pluginler buraya
+"""ALL PLUGINS COME HERE
 
 
-"""
-"airline plugini
-"https://github.com/bling/vim-airline
-Plugin 'bling/vim-airline'
+""" EXAMPLE PLUGIN
+"Plugin 'bling/vim-airline'
 """
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required (sonradan yeniden açılmalı filetype)
-"""""pluginler son
+filetype plugin indent on    " required (re-enablng filetype)
+"""""plugins end
 """"""""""
 
-" vundle için son
+" </vundle> ends
 """""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""
-" FAREYİ AKTİF ETME
+" ENABLING MOUSE
 "
 " Send more characters for redraws
 set ttyfast
@@ -111,19 +107,38 @@ set mouse=a
 " Set this to the name of your terminal that supports mouse codes.
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
 set ttymouse=xterm2
-""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""
 
 
-""""""""""""""""""""""""""""""""""""""
-""şimdi key editleri ve trickler
-
-""otomatik left wrap, (satır başında sola basınca bir önceki, satır sonunda sağa basınca bir sonraki satıra geçme)
-" http://vim.wikia.com/wiki/Automatically_wrap_left_and_right
-set whichwrap+=<,>,h,l,[,]
-
+"""""""""""""""""""""""""""""""""""""
+""Now key edits + tricks
 
 """"
-" kaydedilen dosya tipini unix olmaya zorla (line endings)
+""NeoComplCache + vim-multiple-cursors conflicts, a fix for it
+" we've used a fork because of this: https://github.com/kris89/vim-multiple-cursors
+" https://github.com/terryma/vim-multiple-cursors/issues/51#issuecomment-32344711
+" let's use the methods ere: https://github.com/Shougo/neocomplcache.vim/blob/master/doc/neocomplcache.txt#L106-L116
+function! Multiple_cursors_before()
+    exe 'NeoComplCacheLock'
+    echo 'Disabled autocomplete'
+endfunction
+
+function! Multiple_cursors_after()
+    exe 'NeoComplCacheUnlock'
+    echo 'Enabled autocomplete'
+endfunction
+""""
+
+""""
+"""Auto left - right wrap
+"If you are at the start of line and use left arrow, go to last character of previous line
+" And if you are at the end of a line and use right arrow, go to start of the next line
+" http://vim.wikia.com/wiki/Automatically_wrap_left_and_right
+set whichwrap+=<,>,h,l,[,]
+""""
+
+""""
+" Force file type to be unix (for line endings)
 if WINDOWS()
   set fileformat=unix
   set fileformats=unix,dos
@@ -131,15 +146,15 @@ endif
 """"
 
 """"
-" Ctrl+o tuşuna basınca araya highlight kaldıran hackimsi. 
-" böylece bir şey arandığında veya seçildiğinde escape'e basınca highlight kalkacak
+" Unhighlight search results with CTRL+o 
+" So this way you can clean highlights in ease.
 " http://stackoverflow.com/a/1037182/570763
 map <C-o> :noh<CR>
 """"
 
 
 """"
-" Mouse toggle
+" Mouse toggle (F12) (trimmed a bit for methods)
 " https://github.com/nvie/vim-togglemouse/blob/master/plugin/toggle_mouse.vim
 fun! s:ToggleMouse()
     if !exists("s:old_mouse")
@@ -162,43 +177,48 @@ endif
 """"
 
 set backspace=indent,eol,start 
-                    "windows ve bazı antik linux sistemleri için backspace:
-set linespace=0     "satırlar arası boşluk kalkyıor, daha kompakt
-set nu              "satır sayısını aç
-set showmatch       "eşleşen parantezleri ve süslü parantezleri göster
-set hlsearch        "eşleşen armaa sonuçlarını highlight eder
-set incsearch       "/arama gibi yazmaya başladığın anda gösterir eder
-set ignorecase      " düz aramalar büyük küçük harfe bakmıyor
-set smartcase       " Büyük harf girilmişse o zaman büyük küçük harfe bakıyor aramalar
-set visualbell      "hatalarda bipbip ötmeye ek olarak görüntülü uyarı verir
+                    "Backspace fix for windows and some legacy unix/linux systems
+set linespace=0     "Clears the space between lines, more compact
+set nu              "Show line numbers as default
+set showmatch       "Show matching parantheses (), {}, [] etc.
+set hlsearch        "Highlight the matched search results
+set incsearch       "Instantly show results when you start searching like /searchTerm
+set ignorecase      "Default search is not case sensitive /searchresults
+set smartcase       "If a uppercase character is entered, the search is now case sensitive /searchCase (the C character made it case sensitive) 
+set visualbell      "Instead of beeping, shows a visual bell on errors
 
-set nobackup        " Vim kendi dosyaları backup almasın
-set noswapfile      " Vim kendine bu backuplar için bir swap dosyası oluşturmasın.
+set nobackup        "No backup, vim!
+set noswapfile      "No swap files
 
 
 if !WINDOWS()
    set list             " whitespace highlight için
-   set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace " windows alerjik buna ondan böyle
+   set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespaces 
+                "If this line gives errors, it's most possibly from a UTF-8 setting misconfiguration on your side
+                "You can change this into the following then:
+                "set listchars=tab:>\ ,trail:.,extends:#,nbsp:. " Highlight problematic whitespaces
 endif
 
 """"
-""<tab>lar (girinti) ile alakalı
+""<tab> Indents
 " http://stackoverflow.com/a/23426067/570763
 "set tabstop=4
 
 set expandtab
-set shiftwidth=4    " Use indents of 4 spaces
-set softtabstop=4   " Let backspace delete indent
+set shiftwidth=4    "Use indents of 4 spaces
+set softtabstop=4   "Let backspace delete indent
 set smarttab        "Uses shiftwidth instead of tabstop at start of lines
 """"
 
-
-set splitright                  " Puts new vsplit windows to the right of the current
-set splitbelow                  " Puts new split windows to the bottom of the current
+""""
+"""Split settings
+set splitright                  "Puts new vsplit windows to the right of the current
+set splitbelow                  "Puts new split windows to the bottom of the current
+""""
 
 """"
-" Editör içinde Tab ve shift-tab
-" Selectionları da tab - shift tab yapabilir
+" Tab and shift-tab inside editor
+" This can also make selections tab and shift tab
 map <Tab> >gv
 map <S-Tab> <gv
 
@@ -206,22 +226,22 @@ map <S-Tab> <gv
 "http://stackoverflow.com/a/10174817/570763
 "vmap <S-Tab>  mm<`m:<C-U>exec "normal ".&shiftwidth."h"<CR>mmgv`m
 "vmap <Tab>    mm>`m:<C-U>exec "normal ".&shiftwidth."l"<CR>mmgv`m
-"gvim'de insert moddayken buglı bu, tercihe göre açılabilir kapanabilir
-"""
+"This is bugged in gvim insert mode, you can switch with the default active one
+""""
 
-""""""
-"" Tab Navigasyonu
+"""""
+"" Tab Navigation
 "" {
-map  <C-Right> :tabn<CR>    " Ctrl+sol ok ile tab sağa geçer
-map  <C-Left> :tabp<CR>     " ctrl + sağok ile tab sağa geçer
-map  <C-n> :tabnew<CR>      " ctrl+n yeni tab açar 
+map  <C-Right> :tabn<CR>    "Next tab with Ctrl+rightarrow
+map  <C-Left> :tabp<CR>     "Previous tab with Ctrl+leftarrow
+map  <C-n> :tabnew<CR>      "New tab with Ctrl+n 
 "" }
-""""""
+"""""
 
-""Solarized Tema {
+""Solarized Theme {
 
 """"
-"""solarized tema:
+"""solarized theme:
 " https://github.com/altercation/vim-colors-solarized
 "syntax enable
 "set background=dark
@@ -235,13 +255,13 @@ map  <C-n> :tabnew<CR>      " ctrl+n yeni tab açar
 
 ""}
 
-""xoria-256 Tema {
+""xoria-256 Theme {
 set t_Co=256
 colorscheme xoria256
 ""xoria-256 tema son
 ""}
 
-""Airline'da daha güzel < > ikonları, powerline fontları yoksa
+""Better > and < icons for vim-airline, if there is no powerline fonts installed
 if !exists('g:airline_powerline_fonts')
     " Use the default set of separators with a few customizations
     let g:airline_left_sep='›'  " Slightly fancier than '>'
@@ -250,12 +270,12 @@ endif
 ""
 
 """"
-"leader keyini , işareti yapalım
+"leader key is ","
 let mapleader=","
 """"
 
 """"
-" Paste toggle butonu
+" Paste toggle button
 " http://stackoverflow.com/a/14330368/570763
 :set pastetoggle=<F2>
 """"
@@ -304,18 +324,18 @@ noremap <C-Q> <C-V>
 """"
 
 """"
-" 3 left clickte fold toggle'ı
+" 3 left click will toggle the wrap
 :map <3-LeftMouse> za
 """"
 
 """"
-"açık bufferlar arasında switch
+"Navigate / Switch between open buffers
 map <F3> :bprevious<CR>
 map <F4> :bnext<CR>
 """"
 
 """"
-"satır sayısı gösterme
+"Show line number shortcuts
 map <F5> :set invnumber<CR>
 map <F6> :set nu<CR>
 map <F7> :set nonu<CR>
@@ -323,7 +343,7 @@ map <F7> :set nonu<CR>
 """"
 
 """"
-"Tagbar ı aç kapa (F8)
+"Toggle the tagbar
 nmap <F8> :TagbarToggle<CR>
 """""
 
@@ -338,22 +358,21 @@ vmap <S-Up> <Up>
 vmap <S-Down> <Down>
 vmap <S-Left> <Left>
 vmap <S-Right> <Right>
-
 """"
 
 
 """""
-" CTRL+Shift+d ile satırı kopyalama (Sublime Text'teki gibi)
+" Copy current line with ctrl+shift+d (like in Sublime Text)
 map <C-S-d> yyp<CR>
 """"
 
 """""
-" :Ct komutu ile ConqueTermSplit açma (mevcut buffer splitlenerek terminal açılıyor)
+" Open ConqueTerm (Split current buffer) with :T
 :cabbrev T ConqueTermSplit bash
 """"
 
 """""
-" :Ctb komutu ile ConqueTerm açma (yeni bufferda terminal açılıyor)
+" Open ConqueTerm (new buffer) with :Tn
 :cabbrev Tn ConqueTerm bash
 """"
 
@@ -362,15 +381,15 @@ map <C-S-d> yyp<CR>
 nmap <C-e> :NERDTreeToggle<CR>
 let NERDTreeChDirMode=0
 
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr'] " bu gizli dosyalar gözükmesin
-let NERDTreeShowHidden=1 " yukardaki harici gizli dosyalar gözüksün
-"let NERDTreeQuitOnOpen=1 " dosya açılırsa NERDtree kapansın, kapattım şimdilik
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr'] " don't show these hidden files
+let NERDTreeShowHidden=1 " Every hidden file except the top list should be listed
+"let NERDTreeQuitOnOpen=1 " If a file is opened, hide NERDTree (disabled for now)
 " }
 """"
 
 """"
-" NERDTREE son buffer ise kendi de kapansın, bu sayede Vim de kapanır
-" Bunu iptal etmek için bu kod bloğu kaldırılmalı
+" If NERDTREE is the last buffer, quit Vim
+" To disable this, delete this code block
 " {
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 " Close all open buffers on entering a window if the only
@@ -388,7 +407,7 @@ endfunction
 """"
 
 """"
-" CTRL+P vim'de mevcut klasöre baksın
+" Let CTRL+P should search current folder
 " https://github.com/kien/ctrlp.vim#basic-options
 "let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_working_path_mode = 'c'
@@ -417,10 +436,10 @@ let g:ctrlp_custom_ignore = {
         \ }
 """""
 
-"neocomplcache aç
+"open neocomplcache aç
 let g:neocomplcache_enable_at_startup = 1
 
-"neocomplcache vs. en yakın önerilen metodu tab tuşuna basarak doldursun
+"Neocomplcache should select / fill the nearest suggested method using <tab>
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 """""""""""""""""""""""""""""""""""""

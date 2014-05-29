@@ -179,11 +179,10 @@ TODO
 
 I'm open to suggestions, if you have a suggestion, please feel free to add them from [issues page](https://github.com/Ardakilic/arvim/issues).
 
-* Translation of `.vimrc` to English and tidying it up.
 * <kbd>Ctrl+Shift+Arrowkeys</kbd> feature.
 * On my Gnome Terminal, sometimes Airline + Solarized colors are messed even after I've set the colors (should be fixed).
 * Git Integration
-* Composer and Laravel support
+* Snippets
 * Tests on MacVim
 * ?
 

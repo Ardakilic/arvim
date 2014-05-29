@@ -156,6 +156,7 @@ Some Tricks
 * <kbd>:T</kbd> will split the current buffer, and open a new bash there. <kbd>:Tn</kbd> will open a new shell in the current buffer. (Note: To use `powershell.exe` etc. in Windows, you have to switch these lines: `:cabbrev T ConqueTermSplit bash` and `:cabbrev Tn ConqueTerm bash`)
 * <kbd>F5</kbd> will toggle line numbers on active buffer. <kbd>F6</kbd> will enable, <kbd>F7</kbd> will disable it.
 * <kbd>F2</kbd> will toggle the paste mode.
+* <kbd>Ctrl+a</kbd> selects everything in document (select all).
 * You an use <kbd>Ctrl+X</kbd>, <kbd>Ctrl+C</kbd>, <kbd>Ctrl+V</kbd>, <kbd>Shift+Delete</kbd> and <kbd>Shift+Insert</kbd>, *which will work across Vim and the OS*, and it won't affect blockwise selection. While in insert mode, to paste, use <kbd>Ctrl + R + +</kbd> instead.
 * You can use <kbd>Shift + arrowkeys</kbd> to make selection.
 * Default <kbd>Ctrl+V</kbd> is remapped into <kbd>Ctrl+Q</kbd>.

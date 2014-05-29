@@ -292,6 +292,12 @@ let g:mapleader = ","
 :set pastetoggle=<F2>
 """"
 
+"""
+" Select all shortcut
+" Normal mode is needed for the command, because of that <esc> first
+map <C-a> <esc>ggVG<CR>
+""""
+
 """"
 """Paste Stuff
 " http://stackoverflow.com/questions/11489428/

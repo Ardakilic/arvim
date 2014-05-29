@@ -447,6 +447,9 @@ let g:ctrlp_custom_ignore = {
         \ }
 """""
 
+"set cursorline on startup
+:set cursorline
+
 "open neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 

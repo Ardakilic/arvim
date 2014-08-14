@@ -28,7 +28,7 @@ This configuration includes some packages:
 * [Vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors): True Sublime Text style multiple selections for Vim.
 * [Syntastic](https://github.com/scrooloose/syntastic) - Syntax checking hacks for vim.
 * [Neocomplcache](https://github.com/Shougo/neocomplcache.vim) - Ultimate auto-completion system for Vim.
-* [ctrlp.vim](https://github.com/kien/ctrlp.vim) - Fuzzy file, buffer, mru, tag, etc finder.
+* [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim) - Fuzzy file, buffer, mru, tag, etc finder.
 * [Tagbar](https://github.com/majutsushi/tagbar) - Vim plugin that displays tags in a window, ordered by scope.
 * [vim-autoclose](https://github.com/spf13/vim-autoclose) - Inserts matching bracket, paren, brace or quote. Original script: [here](http://www.vim.org/scripts/script.php?script_id=1849).
 * [Vim-blade](https://github.com/xsbeats/vim-blade): Vim syntax highlighting for Blade templates ([Laravel 4](http://laravel.com)).

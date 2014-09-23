@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""
-"     ___        _    __
+"     ___        _    ___
 "    /   |  ____| |  / (_)___ ___
 "   / /| | / ___/ | / / / __ `__ \
 "  / ___ |/ /   | |/ / / / / / / /
@@ -299,7 +299,7 @@ map <C-a> <esc>ggVG<CR>
 """"
 """Paste Stuff
 " http://stackoverflow.com/questions/11489428/
-"set clipboard+=unnamed  " use the clipboards of vim and win
+set clipboard+=unnamed  " use the clipboards of vim and win
 "set paste               " Paste from a windows or from vim -> breaks the neocomplcache, disabled!
 
 

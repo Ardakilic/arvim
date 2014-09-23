@@ -1,16 +1,15 @@
 """"""""""""""""""""""""""""""""""
-"     ___        _    ___         
-"    /   |  ____| |  / (_)___ ___ 
+"     ___        _    __
+"    /   |  ____| |  / (_)___ ___
 "   / /| | / ___/ | / / / __ `__ \
 "  / ___ |/ /   | |/ / / / / / / /
-" /_/  |_/_/    |___/_/_/ /_/ /_/ 
+" /_/  |_/_/    |___/_/_/ /_/ /_/
 "
-""""""""""""""""""""""""""""""""""""                                
+""""""""""""""""""""""""""""""""""
 
 " URL: https://github.com/Ardakilic/arvim
 " AUTHOR: Arda Kilicdagi
 " WEB: http://arda.pw
-
 
 set nocompatible              " be iMproved, required
 
@@ -18,7 +17,6 @@ set nocompatible              " be iMproved, required
 set title
 
 set ruler " show cursor position at right bottom
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " taken from spf13-vim
@@ -301,41 +299,19 @@ map <C-a> <esc>ggVG<CR>
 """"
 """Paste Stuff
 " http://stackoverflow.com/questions/11489428/
-set clipboard+=unnamed  " use the clipboards of vim and win
+"set clipboard+=unnamed  " use the clipboards of vim and win
 "set paste               " Paste from a windows or from vim -> breaks the neocomplcache, disabled!
 
 
 """""" 
 " Ctrl+X, Shift+Del, Ctrl+V, Shift+Insert
-" http://raghavan.info/blog/2013/02/10/bind-ctrl-v-to-copy-paste-in-vim-without-affecting-blockwise-selection/
-" CTRL-X and SHIFT-Del are Cut
-vnoremap <C-X> "+x
-vnoremap <S-Del> "+x
 
-" CTRL-C and CTRL-Insert are Copy
-vnoremap <C-C> "+y
-vnoremap <C-Insert> "+y
-
-" CTRL-V and SHIFT-Insert are Paste
-map <C-V> "+gP
-map <S-Insert> "+gP
-
-cmap <C-V> <C-R>+
-cmap <S-Insert> <C-R>+
-
-" Pasting blockwise and linewise selections is not possible in Insert and
-" Visual mode without the +virtualedit feature.  They are pasted as if they
-" were characterwise instead.
-" Uses the paste.vim autoload script.
-
-exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
-exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
-
-imap <S-Insert> <C-V>
-vmap <S-Insert> <C-V>
-
-" Use CTRL-Q to do what CTRL-V used to do
-noremap <C-Q> <C-V>
+vmap <C-c> y<Esc>i
+vmap <C-x> d<Esc>i
+imap <C-v> <Esc>pi
+imap <C-y> <Esc>ddi
+map <C-z> <Esc>
+imap <C-z> <Esc>ui
 
 
 ""Paste stuff

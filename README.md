@@ -68,13 +68,7 @@ Installation
 3. And then, just run these commands on your terminal:
 
 ```
-cd $HOME
-rm -rf .vim .vimrc
-git clone --recursive https://github.com/Ardakilic/arvim.git
-cd arvim
-mv .vim .vimrc $HOME
-rm -rf $HOME/arvim
-vim +PluginInstall +qall
+wget -q -O -  https://raw.githubusercontent.com/Ardakilic/arvim/master/install-linux-osx.sh | bash
 ```
 
 ###On Windows:

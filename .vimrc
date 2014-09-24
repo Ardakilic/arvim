@@ -21,7 +21,7 @@ set ruler " show cursor position at right bottom
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " taken from spf13-vim
 " Environment {
- function! OSX()
+        silent function! OSX()
             return has('macunix')
         endfunction
         silent function! LINUX()

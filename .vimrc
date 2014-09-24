@@ -21,9 +21,7 @@ set ruler " show cursor position at right bottom
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " taken from spf13-vim
 " Environment {
-
-    " Identify platform {
-        silent function! OSX()
+ function! OSX()
             return has('macunix')
         endfunction
         silent function! LINUX()
@@ -202,7 +200,7 @@ set noswapfile      "No swap files
 
 if !WINDOWS()
    set list             " whitespace highlight için
-   set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespaces 
+   set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespaces
                 "If this line gives errors, it's most possibly from a UTF-8 setting misconfiguration on your side
                 "You can change this into the following then:
                 "set listchars=tab:>\ ,trail:.,extends:#,nbsp:. " Highlight problematic whitespaces
@@ -296,12 +294,6 @@ let g:mapleader = ","
 map <C-a> <esc>ggVG<CR>
 """"
 
-""""
-"""Paste Stuff
-" http://stackoverflow.com/questions/11489428/
-set clipboard+=unnamed  " use the clipboards of vim and win
-"set paste               " Paste from a windows or from vim -> breaks the neocomplcache, disabled!
-
 
 """""" 
 " Ctrl+X, Shift+Del, Ctrl+V, Shift+Insert
@@ -309,11 +301,21 @@ set clipboard+=unnamed  " use the clipboards of vim and win
 vmap <C-c> y<Esc>i
 vmap <C-x> d<Esc>i
 imap <C-v> <Esc>pi
+imap <S-Insert> <Esc>pi
 imap <C-y> <Esc>ddi
 map <C-z> <Esc>
 imap <C-z> <Esc>ui
 
 
+if has('clipboard')
+
+    set clipboard+=unnamed
+
+    if has('unnamedplus')
+        set clipboard=unnamed,unnamedplus
+    endif
+
+endif
 ""Paste stuff
 """"
 

@@ -124,7 +124,7 @@ nnoremap k gk
 ""NeoComplCache + vim-multiple-cursors conflicts, a fix for it
 " we've used a fork because of this: https://github.com/kris89/vim-multiple-cursors
 " https://github.com/terryma/vim-multiple-cursors/issues/51#issuecomment-32344711
-" let's use the methods ere: https://github.com/Shougo/neocomplcache.vim/blob/master/doc/neocomplcache.txt#L106-L116
+" let's use the methods here: https://github.com/Shougo/neocomplcache.vim/blob/master/doc/neocomplcache.txt#L106-L116
 function! Multiple_cursors_before()
     exe 'NeoComplCacheLock'
     echo 'Disabled autocomplete'

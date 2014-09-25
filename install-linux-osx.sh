@@ -29,7 +29,7 @@ then
 fi
 if ! which git > /dev/null; 
     then
-        echo 'git is not installed yet, you must install it first'
+        echo '"git is not installed yet, you must install it first'
         HASERROR=yes
 fi
 

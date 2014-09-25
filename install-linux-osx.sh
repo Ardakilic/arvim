@@ -43,7 +43,7 @@ else
     echo '"Installing and running Arvim, please wait...'
     echo '"'
     cd $HOME
-    rm -rf .vim .vimrc
+    rm -rf .vim .vimrc arvim
     git clone --recursive https://github.com/Ardakilic/arvim.git
     cd arvim
     mv .vim .vimrc $HOME

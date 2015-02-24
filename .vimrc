@@ -268,9 +268,15 @@ map  <C-n> :tabnew<CR>      "New tab with Ctrl+n
 ""}
 
 ""xoria-256 Theme {
-set t_Co=256
-colorscheme xoria256
+"set t_Co=256
+"colorscheme xoria256
 ""xoria-256 tema son
+""}
+
+""Tomorrow-Night Theme {
+set t_Co=256
+colorscheme Tomorrow-Night
+""Tomorrow-Night tema son
 ""}
 
 ""Better > and < icons for vim-airline, if there is no powerline fonts installed

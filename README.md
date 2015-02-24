@@ -33,6 +33,7 @@ This configuration includes some packages:
 * [vim-autoclose](https://github.com/spf13/vim-autoclose) - Inserts matching bracket, paren, brace or quote. Original script: [here](http://www.vim.org/scripts/script.php?script_id=1849).
 * [Vim-blade](https://github.com/xsbeats/vim-blade): Vim syntax highlighting for Blade templates ([Laravel 4](http://laravel.com)).
 * [Solarized Color Scheme](https://github.com/altercation/vim-colors-solarized) - precision colorscheme for the vim text editor.
+* [Tomorrow Night Color Scheme](https://github.com/Ardakilic/vim-tomorrow-night-theme), a separate repository for [original colorscheme repo](https://github.com/chriskempson/tomorrow-theme).
 * [xoria256 Color Scheme](https://github.com/vim-scripts/xoria256.vim) - Finely tuned soft gamma, 256 colors, dark background. Original script: [here](http://www.vim.org/scripts/script.php?script_id=2140).
 
 
@@ -41,11 +42,15 @@ Screenshots
 
 **Very recent screenshot with full features**
 
+Using `Tomorrow-Night` theme:
+![Preview0](http://i.imgur.com/qaWcQMG.png)
 
+Using `xoria256` theme:
 ![Preview1](http://i.imgur.com/lbzgnDp.png)
 
 **The rest is out of date, but you'll get the idea.**
 
+Using `solarized` theme:
 ![Preview2](http://i.imgur.com/eH4CdlW.png)
 
 ![Preview3](http://i.imgur.com/qXOp9WX.png)
@@ -68,7 +73,9 @@ Installation
 3. And then, just run these commands on your terminal:
 
 ```
-wget -q -O -  https://raw.githubusercontent.com/Ardakilic/arvim/master/install-linux-osx.sh | bash
+wget -q -O - https://rawgit.com/Ardakilic/arvim/master/install-linux-osx.sh | bash
+cd
+vim +PluginInstall +qall
 ```
 
 ###On Windows:
@@ -144,6 +151,7 @@ Another way is to download the whole package again, but you may have to re-edit 
 Some Tricks
 --------------
 * This configuration supports mouse input :)
+* (enabled default feature) Full UTF-8 support.
 * <kbd>CTRL+e</kbd> will toggle NERDTree.
 * (default feature) Pressing <kbd>r</kbd> will reload contents on focused folder in NERDTree (you'll see changes if done), <kbd>R</kbd> will reload all contents from root of NERDTree.
 * (default feature from plugin, remapped) <kbd>Ctrl+d</kbd> will select the next word (as in Sublime Text), and there will be multiple cursors. After then you can multi edit/delete the matched words. More info: [here](https://github.com/terryma/vim-multiple-cursors#about).
@@ -157,7 +165,7 @@ Some Tricks
 * <kbd>F8</kbd> will toggle the Tagbar.
 * <kbd>j</kbd> and <kbd>k</kbd> will really go to bottom and top line in editor, not the real next / previous line (if long lines are wrapped, it'd go to next #linenumber ignoring the wrap between).
 * <kbd>jj</kbd> will do what <kbd>ESC</kbd> does.
-* <kbd>CTRL+n</kbd> will open a new tab, <kbd>CTRL+←</kbd> will switch to previous tab, <kbd>CTRL+→</kbd> will switch to next tab.
+* <kbd>CTRL+n</kbd> will open a new tab, <kbd>CTRL + ←</kbd> will switch to previous tab, <kbd>CTRL + →</kbd> will switch to next tab.
 * <kbd>CTRL+Shift+d</kbd> will duplicate the current line (just like Sublime Text).
 * (default feature) To open a file in a new tab from NERDTree, choose the file, and press <kbd>t</kbd>
 * If using mouse, <kbd>F12</kbd> will switch mouse focus from Vim to Terminal, pressing <kbd>F12</kbd> will switch again. (Using [this](https://github.com/nvie/vim-togglemouse/blob/master/plugin/toggle_mouse.vim) snippet)

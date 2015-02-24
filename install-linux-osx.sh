@@ -48,6 +48,4 @@ else
     cd arvim
     mv .vim .vimrc $HOME
     rm -rf $HOME/arvim
-    cd $HOME
-    vim +PluginInstall +qall
 fi

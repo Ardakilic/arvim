@@ -54,3 +54,7 @@
 	path = .vim/bundle/vim-multiple-cursors
 	url = https://github.com/kris89/vim-multiple-cursors
 	ignore = dirty
+[submodule ".vim/bundle/vim-tomorrow-night-theme"]
+	path = .vim/bundle/vim-tomorrow-night-theme
+	url = https://github.com/Ardakilic/vim-tomorrow-night-theme
+	ignore = dirty

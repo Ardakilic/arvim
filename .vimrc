@@ -13,6 +13,11 @@
 
 set nocompatible              " be iMproved, required
 
+"Vim breaks over SSH if language used in local and remote machines are different
+"http://stackoverflow.com/q/17103551/570763
+"http://stackoverflow.com/a/18929822/570763
+set encoding=utf-8      "UTF-8 all the way!
+
 " Let terminal get title from vim. Like "vim - fileName.php"
 set title
 

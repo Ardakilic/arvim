@@ -214,7 +214,7 @@ endif
 """"
 ""<tab> Indents
 " http://stackoverflow.com/a/23426067/570763
-"set tabstop=4
+set tabstop=4
 
 set expandtab
 set shiftwidth=4    "Use indents of 4 spaces
